@@ -78,7 +78,7 @@ app.post("/login", async (request, response) => {
   const checkingQuery = await db.get(queryget);
   console.log(checkingQuery, "kk", password);
   if (checkingQuery === undefined) {
-    response.status(400);
+    // response.status(400);
     response.send("User doesn't exist please create");
   } else {
     const checkingPassword = await bcrypt.compare(
@@ -94,7 +94,7 @@ app.post("/login", async (request, response) => {
       response.status(200);
       response.send(jwtverified);
     } else {
-      response.status("400");
+      // response.status("400");
       response.send("invalid password");
     }
   }
